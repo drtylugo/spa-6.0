@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPA Negocios</title>
+  <style>
+    /* Paleta de colores profesional */
+    :root {
+      --color-primario: #2c3e50;
+      --color-secundario: #18bc9c;
+      --color-terciario: #ecf0f1;
+      --color-texto: #333;
+      --color-fondo: #f8f9fa;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
+    }
+    header {
+      background-color: var(--color-primario);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+    nav button {
+      background-color: var(--color-secundario);
+      border: none;
+      padding: 0.5rem 1rem;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    nav button:hover {
+      background-color: #149174;
+    }
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: white;
+      box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
+      border-radius: 10px;
+    }
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+    h2 {
+      color: var(--color-primario);
+    }
+    .cta-button {
+      background-color: var(--color-secundario);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 1rem;
+      display: inline-block;
+      text-decoration: none;
+    }
+    footer {
+      background-color: var(--color-primario);
+      color: white;
+      text-align: center;
+      padding: 1rem 2rem;
+      margin-top: 2rem;
+    }
+    .social-buttons {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .social-buttons a {
+      color: var(--color-secundario);
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .social-buttons a:hover {
+      color: #149174;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Negocios SPA</h1>
+    <nav>
+      <button onclick="showSection('inicio')">Inicio</button>
+      <button onclick="showSection('quienes')">Quiénes Somos</button>
+      <button onclick="showSection('servicios')">Servicios</button>
+      <button onclick="showSection('promociones')">Promociones</button>
+      <button onclick="showSection('contacto')">Contacto</button>
+    </nav>
+  </header>
+  <main>
+    <section id="inicio" class="active">
+      <h2>Bienvenido a Negocios SPA</h2>
+      <p>Ofrecemos soluciones profesionales para impulsar tu empresa con calidad y confianza.</p>
+      <a href="#contacto" class="cta-button" onclick="showSection('contacto')">Contáctanos</a>
+    </section>
+    <section id="quienes">
+      <h2>Quiénes Somos</h2>
+      <p>Somos una empresa comprometida con la excelencia y el desarrollo de negocios exitosos.</p>
+    </section>
+    <section id="servicios">
+      <h2>Servicios</h2>
+      <ul>
+        <li>Asesoría empresarial</li>
+        <li>Desarrollo de proyectos</li>
+        <li>Marketing digital</li>
+      </ul>
+    </section>
+    <section id="promociones">
+      <h2>Promociones</h2>
+      <p>Descuentos especiales por tiempo limitado. ¡Aprovecha!</p>
+    </section>
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>Teléfono: +52 55 1234 5678</p>
+      <p>Email: contacto@negociosspa.com</p>
+      <p>WhatsApp: +52 55 9876 5432</p>
+
+      <div class="social-buttons">
+        <a href="https://facebook.com/negociosspa" target="_blank" aria-label="Facebook">📘</a>
+        <a href="https://twitter.com/negociosspa" target="_blank" aria-label="Twitter">🐦</a>
+        <a href="https://instagram.com/negociosspa" target="_blank" aria-label="Instagram">📸</a>
+        <a href="https://linkedin.com/company/negociosspa" target="_blank" aria-label="LinkedIn">🔗</a>
+        <a href="https://youtube.com/negociosspa" target="_blank" aria-label="YouTube">▶️</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Negocios SPA. Todos los derechos reservados.
+  </footer>
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('main section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      const target = document.getElementById(id);
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      }
+    }
+  </script>
+</body>
+</html>
